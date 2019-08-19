@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :reviews, through: :bookings
   has_many :wishes, dependent: :destroy
   has_many :plants, through: :wishes
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  # validates :first_name, presence: true
+  # validates :last_name, presence: true
 
 end
