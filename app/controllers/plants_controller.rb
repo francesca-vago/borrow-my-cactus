@@ -8,6 +8,15 @@ class PlantsController < ApplicationController
     authorize @plant
   end
 
+  def search
+    if params[:plant].nil?
+      @plants = Plant.where(name: "")
+    else
+      @plants = Plant.where(name: params[:plant][:name])
+    end
+    authorize @plants
+  end
+
   def new
     @plant = Plant.new
     authorize @plant
