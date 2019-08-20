@@ -4,7 +4,7 @@
   <li> <%= link_to plant.name, plant_path(plant) %>
     <%=plant.daily_price%>
     <%= plant.instructions %>
-
+    <p>by:<%= plant.user.email %></p>
     </li>
   <% end %>
 </ol>
