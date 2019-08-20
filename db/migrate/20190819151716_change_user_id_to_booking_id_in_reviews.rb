@@ -1,5 +1,6 @@
 class ChangeUserIdToBookingIdInReviews < ActiveRecord::Migration[5.2]
   def change
-    rename_column :reviews, :user_id, :booking_id
+    remove_reference :reviews, :user
+    add_reference :reviews, :booking, foreign_key: true
   end
 end
