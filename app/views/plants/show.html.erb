@@ -1,0 +1,7 @@
+<h3><%= @plant.name %></h3>
+<h3><%= @plant.species %></h3>
+<h3><%= @plant.instructions %></h3>
+<h3><%= @plant.daily_price %></h3>
+<h3><%= @plant.danger_level %></h3>
+<%= link_to 'Back home', plants_path %>
+<%= link_to "edit", edit_plant_path(@plant)  %>
