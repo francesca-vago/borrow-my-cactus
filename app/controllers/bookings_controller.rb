@@ -9,14 +9,16 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @plant = Plant.find(params[:plant_id])
   end
 
   def create
+    @plant = Plant.find(params[:plant_id])
     @booking = Booking.new(booking_params)
-    @booking.user = User.first
-    @booking.plant = Plant.first
+    @booking.user = current_user
+    @booking.plant = @plant
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to dashboard_path
     else
       render :new
     end
