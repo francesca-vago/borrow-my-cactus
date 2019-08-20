@@ -1,0 +1,17 @@
+<h3>All Reviews</h3>
+<ul>
+  <% @reviews.each do |review| %>
+    <li>
+      <%= review.stars %>
+      <%= review.content %>
+      <% if policy(review).edit? %>
+      <%= link_to "Edit", edit_review_path(review) %>
+      <% end %>
+      <% if policy(review).destroy? %>
+      <%= link_to "Delete", review_path(review),
+          method: :delete,
+          data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
