@@ -19,4 +19,8 @@ class PlantPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def search?
+    true
+  end
 end

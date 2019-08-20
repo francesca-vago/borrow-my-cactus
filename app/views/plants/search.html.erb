@@ -1,0 +1,18 @@
+<h3>Search here</h3>
+<%= simple_form_for Plant.new, url: search_path, method: :get do |f| %>
+  <%= f.input :name%>
+  <%= f.submit %>
+<% end %>
+
+
+<ol>
+  <% @plants.each do |plant| %>
+  <li> <%= link_to plant.name, plant_path(plant) %>
+    <%=plant.daily_price%>
+    <%= plant.instructions %>
+    <p>by:<%= plant.user.email %></p>
+    <%= link_to "add to wishlist", plant_wishes_path(plant), method: :post  %>
+    </li>
+  <% end %>
+</ol>
+<%= link_to "create new", new_plant_path  %>

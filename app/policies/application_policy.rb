@@ -34,6 +34,10 @@ class ApplicationPolicy
     false
   end
 
+  def dashboard?
+    user
+  end
+
   class Scope
     attr_reader :user, :scope
 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get 'dashboard', to: 'users#dashboard', as: :dashboard
-
+  get 'search', to: 'plants#search'
 
  resources :plants do
   resources :bookings, only: [:new, :create]
