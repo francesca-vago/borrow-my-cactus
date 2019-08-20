@@ -29,4 +29,4 @@ group :development, :test do
 end
 
 gem "faker", "~> 2.1"
-gem 'pundit'
+gem "pundit"

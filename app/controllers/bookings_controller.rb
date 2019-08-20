@@ -1,35 +1,39 @@
 class BookingsController < ApplicationController
+  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+
   def index
-    @bookings = Booking.all
+    @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
   def show
-    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def new
+    @plant = Plant.find(params[:plant_id])
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
+    authorize @booking
+    @plant = Plant.find(params[:plant_id])
     @booking = Booking.new(booking_params)
-    @booking.user = User.first
-    @booking.plant = Plant.first
+    @booking.user = current_user
+    @booking.plant = @plant
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to dashboard_path
     else
       render :new
     end
   end
 
   def edit
-    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   def update
-    @booking = Booking.find(params[:id])
-    @booking.user = User.first
-    @booking.plant = Plant.first
+    authorize @booking
     if @booking.update(booking_params)
       redirect_to booking_path(@booking)
     else
@@ -38,9 +42,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.delete
-
     redirect_to bookings_path
   end
 
@@ -48,5 +51,9 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 end

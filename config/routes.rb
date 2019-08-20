@@ -5,11 +5,10 @@ Rails.application.routes.draw do
   get 'dashboard', to: 'users#dashboard', as: :dashboard
 
 
- resources :plants
+ resources :plants do
+  resources :bookings, only: [:new, :create]
+ end
 
-
+resources :bookings, only: [:index, :show, :edit, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  resources :bookings
-
 end
