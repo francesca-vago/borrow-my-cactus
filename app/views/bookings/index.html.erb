@@ -4,7 +4,9 @@
     <li>
       <%= booking.plant.name %>
       <%= booking.start_date %> | <%= booking.end_date %>
-      <%= link_to "Show", booking_path(booking) %>
+      <% if policy(booking).show? %>
+        <%= link_to "Show", booking_path(booking) %>
+      <% end %>
     </li>
   <% end %>
 </ul>
