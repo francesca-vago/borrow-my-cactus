@@ -29,12 +29,23 @@
 
     <div class="padding">
       <h2>Reviews</h2>
-
+      <% @my_own_plants.each do |plant| %>
+        <% plant.bookings.each do |booking| %>
+          <ul>
+            <% booking.reviews.each do |review| %>
+              <li><%= review.content %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      <% end %>
 
     </div>
 
     <div class="padding">
       <h2>Wishlist</h2>
+      <% @my_wishes.each do |cactus| %>
+        cactus.name
+      <% end %>
 
 
     </div>

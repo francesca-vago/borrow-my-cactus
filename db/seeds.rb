@@ -26,5 +26,5 @@ end
 
 #this will create a booking
 Booking.new({plant_id:2, user_id: 6,start_date: Date.today,end_date:Date.today + 4})
-
+Review.new( {content: "cool", booking_id:1, stars:5})
 
