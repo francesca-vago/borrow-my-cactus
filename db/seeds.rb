@@ -12,9 +12,13 @@ require 'faker'
                   last_name: Faker::Name.last_name,
                   address: Faker::Address.city,
                   email: Faker::Internet.email,
-                  password: Faker::Internet.password(min_length: 6)
+                  password: 123456
                 )
-  plant.save
+  plant.save #this is useless
 end
 
+
+#this will create a booking
+Booking.new({plant_id:2, user_id: 6,start_date: Date.today,end_date:Date.today + 4})
+Review.new( {content: "cool", booking_id:1, stars:5})
 

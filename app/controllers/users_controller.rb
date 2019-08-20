@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
   def dashboard
-    #@my_cactus = Cactus.all l'id n'entre pas en jeu
-    #@cactus_borrowed = faire une boucle each pour retrouver a travers les id booking les cactus. Reregarder le schema de la db.
-
+    @my_own_plants = current_user.plants
+    # @my_own_plants = Plant.where(user: current_user)
+    @my_bookings = current_user.bookings
+    @my_wishes = current_user.wishes
   end
 end
+
