@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
  resources :plants do
   resources :bookings, only: [:new, :create]
+  resources :wishes, only: :create
  end
 
 resources :bookings, only: [:index, :show, :edit, :update, :destroy]

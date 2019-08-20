@@ -5,6 +5,7 @@
     <%=plant.daily_price%>
     <%= plant.instructions %>
     <p>by:<%= plant.user.email %></p>
+    <%= link_to "add to wishlist", plant_wishes_path(plant), method: :post  %>
     </li>
   <% end %>
 </ol>
