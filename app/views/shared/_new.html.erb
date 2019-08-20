@@ -1,0 +1,10 @@
+<h3>Add a new plant</h3>
+<%= simple_form_for plant do |f| %>
+  <%= f.input :name %>
+  <%= f.input :species %>
+  <%= f.input :instructions %>
+  <%= f.input :daily_price %>
+  <%= f.input :image %>
+  <%= f.input :danger_level %>
+  <%= f.button :submit %>
+<% end %>
