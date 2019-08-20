@@ -40,11 +40,11 @@ ActiveRecord::Schema.define(version: 2019_08_19_151716) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.bigint "booking_id"
     t.string "content"
     t.integer "stars"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "booking_id"
     t.index ["booking_id"], name: "index_reviews_on_booking_id"
   end
 
@@ -76,7 +76,7 @@ ActiveRecord::Schema.define(version: 2019_08_19_151716) do
   add_foreign_key "bookings", "plants"
   add_foreign_key "bookings", "users"
   add_foreign_key "plants", "users"
-  add_foreign_key "reviews", "users", column: "booking_id"
+  add_foreign_key "reviews", "bookings"
   add_foreign_key "wishes", "plants"
   add_foreign_key "wishes", "users"
 end
