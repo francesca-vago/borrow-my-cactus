@@ -4,4 +4,9 @@
 <h3><%= @plant.daily_price %></h3>
 <h3><%= @plant.danger_level %></h3>
 <%= link_to 'Back home', plants_path %>
-<%= link_to "edit", edit_plant_path(@plant)  %>
+<% if policy(@plant).edit? %>
+  <%= link_to "edit", edit_plant_path(@plant)  %>
+<% end %>
+<% if policy(@plant).destroy? %>
+  <%= link_to "Delete", plant_path(@plant), method: :delete  %>
+<% end %>

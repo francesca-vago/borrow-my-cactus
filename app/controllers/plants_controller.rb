@@ -1,19 +1,22 @@
 class PlantsController < ApplicationController
   def index
-    @plants = Plant.all
+    @plants = policy_scope(Plant.all)
   end
 
   def show
     @plant = Plant.find(params[:id])
+    authorize @plant
   end
 
   def new
     @plant = Plant.new
+    authorize @plant
   end
 
   def create
     @plant = Plant.new(plant_params)
-    @plant.user = User.first
+    @plant.user = current_user
+    authorize @plant
     if @plant.save
       redirect_to plants_path
     else
@@ -23,17 +26,21 @@ class PlantsController < ApplicationController
 
   def edit
     @plant = Plant.find(params[:id])
+    authorize @plant
   end
 
   def update
     @plant = Plant.find(params[:id])
     @plant.update(plant_params)
+    authorize @plant
       redirect_to plants_path
   end
 
   def destroy
     @plant = Plant.find(params[:id])
     @plant.delete
+    redirect_to plants_path
+    authorize @plant
   end
 
 
