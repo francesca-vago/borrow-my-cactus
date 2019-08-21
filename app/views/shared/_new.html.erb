@@ -1,10 +1,14 @@
-<h3>Add a new plant</h3>
-<%= simple_form_for plant do |f| %>
-  <%= f.input :name %>
-  <%= f.input :species %>
-  <%= f.input :instructions %>
-  <%= f.input :daily_price %>
-  <%= f.input :image %>
-  <%= f.input :danger_level %>
-  <%= f.button :submit %>
-<% end %>
+<h3 class="text-center p-3">Add a new plant</h3>
+<div class="row plant-form d-flex">
+  <div class="col-lg-6">
+    <%= simple_form_for plant do |f| %>
+      <%= f.input :name %>
+      <%= f.input :species %>
+      <%= f.input :instructions %>
+      <%= f.input :daily_price %>
+      <%= f.input :image %>
+      <%= f.input :danger_level %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
