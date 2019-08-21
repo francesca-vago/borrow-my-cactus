@@ -6,13 +6,14 @@ Booking.destroy_all
 Plant.destroy_all
 User.destroy_all
 
-reviews = ['good plants', 'the spikes are too sharp', 'cactus speaks!!!!!', 'good style', 'do you know Paul', 'Le wagon is so cool!']
+reviews = ['good plants', 'the spikes are too sharp', 'cactus speaks!!!!!']
+cities = ['London', 'Paris', 'Milan', 'Dublin', 'Amsterdam']
 
 7.times do
   user = User.create!(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
-    address: Faker::Address.city,
+    address: cities.sample,
     email: Faker::Internet.email,
     password: 123456
   )
