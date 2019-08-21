@@ -1,4 +1,4 @@
-;class PlantsController < ApplicationController
+class PlantsController < ApplicationController
   def index
     @plants = policy_scope(Plant.all)
   end
@@ -31,7 +31,7 @@
     @plant.user = current_user
     authorize @plant
     if @plant.save
-      redirect_to plants_path
+      redirect_to dashboard_path
     else
       render 'new'
     end
