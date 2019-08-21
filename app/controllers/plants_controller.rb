@@ -59,7 +59,6 @@ class PlantsController < ApplicationController
     redirect_to dashboard_path
   end
 
-
   private
 
   def plant_params

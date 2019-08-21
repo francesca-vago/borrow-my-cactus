@@ -1,10 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @bookings = policy_scope(Booking).order(created_at: :desc)
-  end
-
   def show
     authorize @booking
   end
@@ -44,7 +40,7 @@ class BookingsController < ApplicationController
   def destroy
     authorize @booking
     @booking.delete
-    redirect_to bookings_path
+    redirect_to dashboard_path
   end
 
   private
