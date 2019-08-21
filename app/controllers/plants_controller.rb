@@ -10,7 +10,7 @@ class PlantsController < ApplicationController
 
   def search
     if params[:plant].nil?
-      @plants = Plant.where(name: "")
+      @plants = [Plant.where(name: "")]
     else
       @plants = Plant.where(name: params[:plant][:name])
     end
