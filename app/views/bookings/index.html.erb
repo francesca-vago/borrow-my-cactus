@@ -6,6 +6,7 @@
       <%= booking.start_date %> | <%= booking.end_date %>
       <% if policy(booking).show? %>
         <%= link_to "Show", booking_path(booking) %>
+        <%= link_to "Add Review", new_booking_review_path(booking) %>
       <% end %>
     </li>
   <% end %>
