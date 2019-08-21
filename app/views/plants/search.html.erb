@@ -1,6 +1,6 @@
 <h3>Search here</h3>
-<%= simple_form_for Plant.new, url: search_path, method: :get do |f| %>
-  <%= f.input :name%>
+<%= simple_form_for @plant, url: search_path, method: :get do |f| %>
+  <%= f.input :address%>
   <%= f.submit "Search"%>
 <% end %>
 
@@ -9,9 +9,10 @@
     <ol>
       <% @plants.each do |plant| %>
       <li> <%= link_to plant.name, plant_path(plant) %>
+        <%= plant.address %>
         <%=plant.daily_price%>
         <%= plant.instructions %>
-        <p>by:<%= plant.user.email %></p>
+        <p>by: <%= plant.user.first_name %></p>
         <%= link_to "add to wishlist", plant_wishes_path(plant), method: :post  %>
         </li>
       <% end %>

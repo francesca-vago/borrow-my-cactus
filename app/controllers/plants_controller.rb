@@ -9,11 +9,13 @@ class PlantsController < ApplicationController
   end
 
   def search
+    @plant = Plant.new
     @plants = Plant.geocoded
-    @markers = @plants.map do |flat|
+    @markers = @plants.map do |plant|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: plant.latitude,
+        lng: plant.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { plant: plant })
       }
     end
     authorize @plants
