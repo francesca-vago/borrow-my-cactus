@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     # @my_own_plants = Plant.where(user: current_user)
     @bookings = policy_scope(Booking).order(created_at: :desc)
     @my_wishes = current_user.wishes
+    @reviews = policy_scope(Review).order(created_at: :desc)
     authorize @my_own_plants
     authorize @bookings
     authorize @my_wishes

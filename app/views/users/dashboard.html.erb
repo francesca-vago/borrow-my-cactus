@@ -89,19 +89,15 @@
 
     <div class="padding">
       <h2>Reviews</h2>
-      <% @my_own_plants.each do |plant| %>
-        <% plant.bookings.each do |booking| %>
-          <ul>
-            <% booking.reviews.each do |review| %>
-              <li>
-                  <%= review.content %>
-                  <p>by <%= review.booking.user.first_name %> <%= review.booking.user.last_name %> </p>
-              </li>
-            <% end %>
-          </ul>
+      <ul>
+        <% @reviews.first(5).each do |review| %>
+          <li>
+            <%= review.content %>
+            <p>by <%= review.booking.user.first_name %>
+                <%= review.booking.user.last_name %></p>
+          </li>
         <% end %>
-      <% end %>
-
+      </ul>
     </div>
 
     <div class="padding">

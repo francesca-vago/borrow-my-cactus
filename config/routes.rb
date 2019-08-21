@@ -14,5 +14,5 @@ resources :bookings, only: [:show, :edit, :update, :destroy] do
   resources :reviews, only: [:new, :create]
  end
 
-resources :reviews, only: [:index, :edit, :update, :destroy]
+resources :reviews, only: [:edit, :update, :destroy]
 end
