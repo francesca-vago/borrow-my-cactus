@@ -23,6 +23,7 @@ cities = ['London', 'Paris', 'Milan', 'Dublin', 'Amsterdam']
       species: "Cactus",
       daily_price: "£#{Faker::Number.within(range: 1..10)}",
       user: user,
+      instructions: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
       address: user.address
     )
     2.times do

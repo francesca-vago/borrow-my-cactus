@@ -1,4 +1,4 @@
-class PlantsController < ApplicationController
+;class PlantsController < ApplicationController
   def index
     @plants = policy_scope(Plant.all)
   end
@@ -51,7 +51,7 @@ class PlantsController < ApplicationController
 
   def destroy
     @plant = Plant.find(params[:id])
-    @plant.delete
+    @plant.destroy
     redirect_to plants_path
     authorize @plant
   end
