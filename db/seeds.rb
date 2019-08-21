@@ -22,7 +22,8 @@ cities = ['London', 'Paris', 'Milan', 'Dublin', 'Amsterdam']
       name: Faker::FunnyName.name,
       species: "Cactus",
       daily_price: "£#{Faker::Number.within(range: 1..10)}",
-      user: user
+      user: user,
+      address: user.address
     )
     2.times do
       booking = Booking.create!(

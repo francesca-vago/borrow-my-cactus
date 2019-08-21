@@ -8,5 +8,4 @@ class User < ApplicationRecord
   has_many :wishes, dependent: :destroy
   # validates :first_name, presence: true
   # validates :last_name, presence: true
-
 end

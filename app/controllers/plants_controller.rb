@@ -9,10 +9,12 @@ class PlantsController < ApplicationController
   end
 
   def search
-    if params[:plant].nil?
-      @plants = Plant.where(name: "")
-    else
-      @plants = Plant.where(name: params[:plant][:name])
+    @plants = Plant.geocoded
+    @markers = @plants.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
     end
     authorize @plants
   end
