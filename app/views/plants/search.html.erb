@@ -11,7 +11,6 @@
       <li> <%= link_to plant.name, plant_path(plant) %>
         <%= plant.address %>
         <%=plant.daily_price%>
-        <%= plant.instructions %>
         <p>by: <%= plant.user.first_name %></p>
         <%= link_to "add to wishlist", plant_wishes_path(plant), method: :post  %>
         </li>
