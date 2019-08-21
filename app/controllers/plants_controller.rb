@@ -44,19 +44,19 @@ class PlantsController < ApplicationController
 
   def update
     @plant = Plant.find(params[:id])
-    @plant.update(plant_params)
     authorize @plant
-    if @plant.update
+    if @plant.update(plant_params)
       redirect_to dashboard_path
     else
       render :edit
+    end
   end
 
   def destroy
     @plant = Plant.find(params[:id])
-    @plant.destroy
-    redirect_to plants_path
     authorize @plant
+    @plant.destroy
+    redirect_to dashboard_path
   end
 
 
