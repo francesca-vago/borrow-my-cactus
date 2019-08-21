@@ -1,8 +1,7 @@
-<h1>Hello World</h1>
+<h1>All Plants</h1>
 
 <div class="row">
-
-  <%= @plants.each do |plant| %>
+  <% @plants.each do |plant| %>
     <div class="cactus card">
       <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://target.scene7.com/is/image/Target/GUEST_a60cf2b2-9af1-430e-8ee8-bdf824f64d4d?wid=488&hei=488&fmt=pjpeg)">
         <div class="header">
@@ -12,7 +11,6 @@
             <span class="year">per day</span>
           </div>
           <ul class="menu-content">
-
             <li> <%= link_to "", plant_wishes_path(plant),  method: :post, class: "fa fa-heart-o" %><span>Save</span>
           </ul>
         </div>
@@ -29,7 +27,6 @@
     </div>
  <% end %>
 </div>
-<%= link_to "create new", new_plant_path  %>
 
 
 
