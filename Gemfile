@@ -30,3 +30,4 @@ end
 
 gem "faker", "~> 2.1"
 gem "pundit"
+gem "geocoder", "~> 1.5"
