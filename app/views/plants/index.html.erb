@@ -1,14 +1,34 @@
 <h1>Hello World</h1>
-<ol>
-  <% @plants.each do |plant| %>
-  <li> <%= link_to plant.name, plant_path(plant) %>
-    <%=plant.daily_price%>
-    <%= plant.instructions %>
-    <p>by:<%= plant.user.email %></p>
-    <%= link_to "add to wishlist", plant_wishes_path(plant), method: :post  %>
-    </li>
-  <% end %>
-</ol>
+
+<div class="row">
+
+  <%= @plants.each do |plant| %>
+    <div class="cactus card">
+      <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://target.scene7.com/is/image/Target/GUEST_a60cf2b2-9af1-430e-8ee8-bdf824f64d4d?wid=488&hei=488&fmt=pjpeg)">
+        <div class="header">
+          <div class="date">
+            <span class="day"></span>
+            <span class="month"><%= plant.daily_price %></span>
+            <span class="year">per day</span>
+          </div>
+          <ul class="menu-content">
+
+            <li> <%= link_to "", plant_wishes_path(plant),  method: :post, class: "fa fa-heart-o" %><span>Save</span>
+          </ul>
+        </div>
+        <div class="data">
+          <div class="content">
+            <span class="author"><%= plant.user.email %></span>
+            <h1 class="title"><%= link_to plant.name, plant_path(plant)  %></h1>
+            <p class="text">The antsy bingers of Netflix will eagerly anticipate the digital release of the Survive soundtrack, out today.</p>
+            <br>
+            <%= link_to "Book Now", new_plant_booking_path(plant), class: "button" %>
+          </div>
+        </div>
+      </div>
+    </div>
+ <% end %>
+</div>
 <%= link_to "create new", new_plant_path  %>
 
 
