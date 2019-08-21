@@ -43,7 +43,9 @@
   <div class = "padding-left ">
     <div class = "padding center-content">
       <br>
-      <h1><%= current_user.first_name %>'s catci</h1>
+      <br>
+      <br>
+      <h1><%= current_user.first_name %>'s cacti</h1>
       <br>
       <div class="row">
         <% @my_own_plants.last(3).each do |plant| %>
@@ -74,8 +76,19 @@
         <% end %>
        </div>
     </div>
+    <br>
+    <br>
+<br>
 
 
+<<<<<<< HEAD
+    <div class = "padding center-content">
+      <h1><%= current_user.first_name %> you are borrowing these plants:</h1>
+      <div class="borrow-content">
+        <ol>
+        <% @my_bookings.first(3).each do |booking| %>
+          <li><p><span id="name-borrowed"><%= booking.plant.name %></span> <span id="from">from</span> <span><%= booking.plant.user.first_name%></span> and you have to return it the <strong><%= booking.end_date %></strong> </p></li>
+=======
     <div class = "padding ">
       <h2>Borrowed cactuses </h2>
         <% @bookings.first(3).each do |booking| %>
@@ -84,7 +97,10 @@
             <%= link_to "Show", booking_path(booking) %>
             <%= link_to "Add Review", new_booking_review_path(booking) %>
           <% end %>
+>>>>>>> master
         <% end %>
+        </ol>
+      </div>
     </div>
 
     <div class="padding">
