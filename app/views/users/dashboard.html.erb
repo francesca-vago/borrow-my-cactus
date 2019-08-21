@@ -1,5 +1,5 @@
   <div class="center-content">
-    <h2>Hi <%= current_user.first_name %>, is it cacti or catuses?</h2>
+    <h2>Hi <%= current_user.first_name %>, is it cacti or cactuses?</h2>
       <div id="workarea">
   <div class="position">
 
@@ -81,27 +81,24 @@
 <br>
 
 
-<<<<<<< HEAD
+
     <div class = "padding center-content">
       <h1><%= current_user.first_name %> you are borrowing these plants:</h1>
       <div class="borrow-content">
-        <ol>
-        <% @my_bookings.first(3).each do |booking| %>
-          <li><p><span id="name-borrowed"><%= booking.plant.name %></span> <span id="from">from</span> <span><%= booking.plant.user.first_name%></span> and you have to return it the <strong><%= booking.end_date %></strong> </p></li>
-=======
+
     <div class = "padding ">
       <h2>Borrowed cactuses </h2>
         <% @bookings.first(3).each do |booking| %>
-          <p> <%= booking.plant.name %>  belongs to <strong><%= booking.plant.user.first_name%></strong> and you have to return it the <strong><%= booking.end_date %></strong>  </p>
+          <p id="borrowing-content"><span id="name-borrowed"><%= booking.plant.name %></span> <span id="from">from</span> <span><%= booking.plant.user.first_name%></span> and you have to return it the <strong><%= booking.end_date %></strong> </p>
           <% if policy(booking).show? %>
             <%= link_to "Show", booking_path(booking) %>
             <%= link_to "Add Review", new_booking_review_path(booking) %>
           <% end %>
->>>>>>> master
         <% end %>
         </ol>
       </div>
     </div>
+     </div>
 
     <div class="padding">
       <h2>Reviews</h2>
@@ -124,7 +121,7 @@
     </div>
 
 
-  </div>
+
 
 
 
