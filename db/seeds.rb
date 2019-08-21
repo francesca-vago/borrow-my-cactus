@@ -21,7 +21,8 @@ reviews = ['good plants', 'the spikes are too sharp', 'cactus speaks!!!!!', 'goo
       name: Faker::FunnyName.name,
       species: "Cactus",
       daily_price: "£#{Faker::Number.within(range: 1..10)}",
-      user: user
+      user: user,
+      instructions: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum"
     )
     2.times do
       booking = Booking.create!(
