@@ -15,10 +15,14 @@
         <%= link_to plant_path(@plant), method: :delete,  class: "btn btn-green" do %> Delete <% end %>
       <% else %>
         <div class="booking-form">
-          <%= link_to "Book now", new_plant_booking_path(@plant)  %>
+          <%= simple_form_for [@plant, @booking] do |f| %>
+          <%= f.input :start_date, class: 'datepicker'%>
+          <%= f.input :end_date, class: 'datepicker' %>
+          <%= f.button :submit, "Book Now", class: "btn btn-green" %>
+          <% end %>
         </div>
       <% end %>
-      <%= link_to plants_path, class: "btn btn-green" do %> Back <% end %>
+      <%= link_to plants_path, class: "btn btn-light" do %> Back <% end %>
     </div>
   </div>
 </div>

@@ -5,12 +5,6 @@ class BookingsController < ApplicationController
     authorize @booking
   end
 
-  def new
-    @plant = Plant.find(params[:plant_id])
-    @booking = Booking.new
-    authorize @booking
-  end
-
   def create
     @plant = Plant.find(params[:plant_id])
     @booking = Booking.new(booking_params)
