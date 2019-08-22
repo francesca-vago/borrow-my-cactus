@@ -1,7 +1,12 @@
 <h3>Search here</h3>
-<%= simple_form_for @plant, url: search_path, method: :get do |f| %>
-  <%= f.input :address%>
-  <%= f.submit "Search"%>
+
+<%= form_tag movies_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a cactus"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
 <% end %>
 
 <div class="search-container d-flex">
