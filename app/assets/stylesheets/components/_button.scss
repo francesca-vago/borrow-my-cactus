@@ -1,25 +1,17 @@
-/*       Just setting CSS for the page   */
-
-
-
-
-.position {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  margin-top: 0;
+.btn-red {
+  color: #fff;
+  background-color: #B12826;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  display: inline-block;
+  opacity: 0.7;
+  text-decoration: none;
 }
 
-
-#personal {
-  color:white;
-  text-decoration:none;
-  position:absolute;
-  bottom:15px;
-  right:2%;
+.btn-red:hover {
+  opacity: 1;
 }
-/*    start code for the actual button:         */
-
 
 /*
     Spot is the span on the inside of the href that
@@ -34,6 +26,7 @@
   top: 0;
   left: 0;
 }
+
 /*
     This is the outer svg wrapper that the SVG itself will
     fill. Multiple svg-wrapper classes can be put side by side.
@@ -50,6 +43,7 @@
   margin-left: 5px;
   margin-right: 5px
 }
+
 /*
   This is where we define the fill, color, thickness,
   and stroke pattern of the SVG when there is no hover.
@@ -60,11 +54,12 @@
 #shape {
   stroke-width: 6px;
   fill: transparent;
-  stroke: #009FFD;
+  stroke: $red;
   stroke-dasharray: 85 400;
   stroke-dashoffset: -220;
   transition: 0.9s all ease;
 }
+
 /*
     Pushing the text up into the SVG. Without this the
     text would be below the div's.
@@ -86,7 +81,7 @@
   stroke-dasharray: 50 0;
   stroke-width: 3px;
   stroke-dashoffset: 0;
-  stroke: #06D6A0;
+  stroke: $green;
 }
 
 

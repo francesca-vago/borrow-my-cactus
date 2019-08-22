@@ -1,6 +1,8 @@
-<div class="banner" style="background-image: url(https://images.pexels.com/photos/1005058/pexels-photo-1005058.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
-  <h1>Borrow My Cactus</h1>
-  <h1>Please redirect to your dashboard and sign in!</h1>
-  <h2>1. Click the cactus at the top</h2>
-  <h2>2. Sign up or Sign in</h2>
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://images.pexels.com/photos/1005058/pexels-photo-1005058.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)">
+  <div class="banner-container">
+    <h1>Borrow My Cactus</h1>
+    <%= link_to new_user_session_path, class: "btn-red" do %> Login <% end %>
+  </div>
 </div>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))
