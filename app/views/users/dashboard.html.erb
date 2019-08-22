@@ -1,93 +1,89 @@
-  <div class="center-content">
-    <h2>Hi <%= current_user.first_name %>, is it cacti or cactuses?</h2>
-      <div id="workarea">
-  <div class="position">
+<div class="center-content">
 
-    <!--start button, nothing above this is necessary -->
-    <div class="svg-wrapper">
-      <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-        <rect id="shape" height="40" width="150" />
-        <div id="text">
-          <%= link_to  plants_path do %>
-         <span class="spot"></span>Explore
-          <% end %>
-        </div>
-      </svg>
+    <!-- Title -->
+    <div class="wrapper main-title">
+      <h1>Hi <%= current_user.first_name %>, is it cacti or cactuses?</h1>
     </div>
-    <!--Next button -->
-    <div class="svg-wrapper">
-      <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-        <rect id="shape" height="40" width="150" />
-        <div id="text">
-          <%= link_to new_plant_path do %>
-          <span class="spot"></span>Add Plant
-          <% end %>
-        </div>
-      </svg>
-    </div>
-    <!--Next button -->
-    <div class="svg-wrapper">
-      <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
-        <rect id="shape" height="40" width="150" />
-        <div id="text">
-          <%= link_to search_path do %>
-          <span class="spot"></span>Search
-          <% end %>
-        </div>
-      </svg>
-    </div>
-  </div>
-</div>
-</div>
 
-  <div class = "padding-left ">
-    <div class = "padding center-content">
-      <br>
-      <br>
-      <br>
-      <h1><%= current_user.first_name %>'s cacti</h1>
-      <br>
+    <!-- Buttons -->
+    <div class="wrapper buttons-wrapper">
+     <!--  Explore Button -->
+      <div class="svg-wrapper">
+        <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+          <rect id="shape" height="40" width="150" />
+          <div id="text">
+            <%= link_to plants_path do %>
+           <span class="spot"></span>Explore
+            <% end %>
+          </div>
+        </svg>
+      </div>
+      <!-- Add Plant Button -->
+      <div class="svg-wrapper">
+        <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+          <rect id="shape" height="40" width="150" />
+          <div id="text">
+            <%= link_to new_plant_path do %>
+            <span class="spot"></span>Add Plant
+            <% end %>
+          </div>
+        </svg>
+      </div>
+      <!--Search Button -->
+      <div class="svg-wrapper">
+        <svg height="40" width="150" xmlns="http://www.w3.org/2000/svg">
+          <rect id="shape" height="40" width="150" />
+          <div id="text">
+            <%= link_to search_path do %>
+            <span class="spot"></span>Search
+            <% end %>
+          </div>
+        </svg>
+      </div>
+    </div>
+
+    <!-- User Cactuses -->
+    <div class = "cactus-wrapper">
+      <div class = "title-wrapper">
+        <h2><%= current_user.first_name %>'s cacti</h2>
+      </div>
       <div class="row">
         <% @my_own_plants.last(3).each do |plant| %>
           <div class="cactus card">
-      <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://target.scene7.com/is/image/Target/GUEST_a60cf2b2-9af1-430e-8ee8-bdf824f64d4d?wid=488&hei=488&fmt=pjpeg)">
-        <div class="header">
-          <div class="date">
-            <span class="day"></span>
-            <span class="month"><%= plant.daily_price %></span>
-            <span class="year">per day</span>
+            <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://target.scene7.com/is/image/Target/GUEST_a60cf2b2-9af1-430e-8ee8-bdf824f64d4d?wid=488&hei=488&fmt=pjpeg)">
+              <div class="header">
+                <div class="date">
+                  <span class="day"></span>
+                  <span class="month"><%= plant.daily_price %></span>
+                  <span class="year">per day</span>
+                </div>
+                <ul class="menu-content">
+                  <li> <%= link_to "", plant_path(plant),  method: :delete, class: "far fa-trash-alt" %>
+                  <span>Delete</span>
+                </ul>
+              </div>
+              <div class="data">
+                <div class="content">
+                  <span class="author"><%= plant.user.first_name %></span>
+                  <h1 class="title"><%= link_to plant.name, plant_path(plant)%></h1>
+                  <p class="text"><%= plant.instructions %></p>
+                  <br>
+                  <%= link_to "Edit plant", edit_plant_path(plant), class: "button" %>
+                </div>
+              </div>
+            </div>
           </div>
-          <ul class="menu-content">
-            <li> <%= link_to "", plant_path(plant),  method: :delete, class: "far fa-trash-alt" %>
-            <span>Delete</span>
-          </ul>
-        </div>
-        <div class="data">
-          <div class="content">
-            <span class="author"><%= plant.user.first_name %></span>
-            <h1 class="title"><%= link_to plant.name, plant_path(plant)  %></h1>
-            <p class="text"><%= plant.instructions %></p>
-            <br>
-            <%= link_to "Edit plant", edit_plant_path(plant), class: "button" %>
-          </div>
-        </div>
-      </div>
-    </div>
         <% end %>
-       </div>
     </div>
-    <br>
-    <br>
-<br>
 
-
-
-    <div class = "padding center-content">
-      <h1><%= current_user.first_name %> you are borrowing these plants:</h1>
+    <!-- Bookings -->
+    <div class = "wrapper">
+      <div class="title-wrapper">
+        <h2><%= current_user.first_name %> you are borrowing these plants:</h2>
+      </div>
       <div class="borrow-content">
 
     <div class = "padding ">
-      <h2>Borrowed cactuses </h2>
         <% @bookings.first(3).each do |booking| %>
           <p id="borrowing-content"><span id="name-borrowed"><%= booking.plant.name %></span> <span id="from">from</span> <span><%= booking.plant.user.first_name%></span> and you have to return it the <strong><%= booking.end_date %></strong> </p>
           <% if policy(booking).show? %>
