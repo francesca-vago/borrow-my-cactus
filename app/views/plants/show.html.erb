@@ -1,14 +1,24 @@
-<h3><%= @plant.name %></h3>
-<h3><%= @plant.species %></h3>
-<h3><%= @plant.instructions %></h3>
-<h3><%= @plant.daily_price %></h3>
-<h3><%= @plant.danger_level %></h3>
-<%= link_to 'Back home', plants_path %>
-<% if policy(@plant).edit? %>
-  <%= link_to "edit", edit_plant_path(@plant)  %>
-<% end %>
-<% if policy(@plant).destroy? %>
-  <%= link_to "Delete", plant_path(@plant), method: :delete  %>
-<% end %>
-<%= link_to "Book now", new_plant_booking_path(@plant)  %>
-<!-- Complted the search features alogn with the book now button -->
+<div class="container">
+  <div class="plant-image" style="background-image: url(https://images.unsplash.com/photo-1551888419-7b7a520fe0ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60)"></div>
+  <div class="info-container">
+    <h1><%= @plant.name %></h1>
+    <p><strong><%= @plant.daily_price %></strong></p>
+    <p><%= @plant.species %></p>
+    <p><%= @plant.instructions %></p>
+    <p><%= @plant.danger_level %></p>
+    <p><%= @plant.user.first_name %> <%= @plant.user.last_name %> </p>
+    <div class="wrapper">
+      <% if policy(@plant).edit? %>
+        <%= link_to edit_plant_path(@plant), class: "btn btn-green" do %> Edit <% end %>
+      <% end %>
+      <% if policy(@plant).destroy? %>
+        <%= link_to plant_path(@plant), method: :delete,  class: "btn btn-green" do %> Delete <% end %>
+      <% else %>
+        <div class="booking-form">
+          <%= link_to "Book now", new_plant_booking_path(@plant)  %>
+        </div>
+      <% end %>
+      <%= link_to plants_path, class: "btn btn-green" do %> Back <% end %>
+    </div>
+  </div>
+</div>

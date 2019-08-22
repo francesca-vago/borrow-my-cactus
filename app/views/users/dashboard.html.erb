@@ -29,7 +29,7 @@
           </div>
         </svg>
       </div>
-    </div>
+
 
     <!-- User Cactuses -->
     <div class = "cactus-wrapper">
@@ -54,7 +54,7 @@
               <div class="data">
                 <div class="content">
                   <span class="author"><%= plant.user.first_name %></span>
-                  <h1 class="title"><%= link_to plant.name, plant_path(plant)%></h1>
+                  <h3 class="title"><%= link_to plant.name, plant_path(plant)%></h3>
                   <p class="text"><%= plant.instructions %></p>
                   <br>
                   <%= link_to "Edit plant", edit_plant_path(plant), class: "button" %>
@@ -68,7 +68,7 @@
     <!-- Bookings -->
     <div class = "wrapper">
       <div class="title-wrapper">
-        <h2><%= current_user.first_name %> you are borrowing these plants:</h2>
+        <h3><%= current_user.first_name %> you are borrowing these plants:</h3>
       </div>
       <div class="borrow-content">
 

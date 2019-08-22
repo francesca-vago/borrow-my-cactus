@@ -1,6 +1,4 @@
-.btn-red {
-  color: #fff;
-  background-color: #B12826;
+.btn {
   padding: 15px 25px;
   border-radius: 10px;
   box-shadow: 0 0 5px rgba(0,0,0,0.5);
@@ -10,11 +8,26 @@
   margin: 20px;
 }
 
+
+.btn-red {
+  color: #fff;
+  background-color: $red;
+}
+
 .btn-red:hover {
   opacity: 0.8;
   color: #fff;
 }
 
+.btn-green {
+  background-color: $green;
+  color: #fff;
+}
+
+.btn-green:hover {
+  opacity: 0.8;
+  color: #fff;
+}
 /*
     Spot is the span on the inside of the href that
     fills the parent and makes the hover and link work
