@@ -1,16 +1,10 @@
 class PlantsController < ApplicationController
   def index
-    @plants = policy_scope(Plant.all)
-  end
-
-  def show
-    @plant = Plant.find(params[:id])
-    authorize @plant
-  end
-
-  def search
-    @plant = Plant.new
-    @plants = Plant.geocoded
+    if params[:query].present?
+      @plants = policy_scope(Plant).global_search(params[:query])
+    else
+      @plants = policy_scope(Plant)
+    end
     @markers = @plants.map do |plant|
       {
         lat: plant.latitude,
@@ -18,7 +12,11 @@ class PlantsController < ApplicationController
         infoWindow: render_to_string(partial: "info_window", locals: { plant: plant })
       }
     end
-    authorize @plants
+  end
+
+  def show
+    @plant = Plant.find(params[:id])
+    authorize @plant
   end
 
   def new
