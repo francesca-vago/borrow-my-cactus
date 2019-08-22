@@ -18,9 +18,9 @@ class BookingsController < ApplicationController
     end
   end
 
-  def edit
-    authorize @booking
-  end
+  # def edit
+  #   authorize @booking
+  # end
 
   def update
     authorize @booking
