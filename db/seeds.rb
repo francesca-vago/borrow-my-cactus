@@ -9,7 +9,7 @@ User.destroy_all
 reviews = ['good plants', 'the spikes are too sharp', 'cactus speaks!!!!!']
 cities = ['17 Amhurst Terrace, Hackney Downs, London E8 2BT',
           '10 Bethnal Green Rd, Hackney, London E1 6GY',
-          'South Kensington, London SW7 4SF',]
+          'South Kensington, London SW7 4SF',
           'Ladbroke Grove, Notting Hill, London W10 6HJ',
           '9 Battersea Rise, London SW11 1HG']
 
@@ -17,7 +17,7 @@ example_user = User.create!(
     first_name: "Francesca",
     last_name: "Vago",
     address: "138 Kingsland Rd, London E2 8DY",
-    email: francesca@gmail.com,
+    email: "francesca@gmail.com",
     password: 123456
   )
   3.times do
@@ -25,7 +25,7 @@ example_user = User.create!(
       name: Faker::FunnyName.name,
       species: "Cactus",
       daily_price: "£#{Faker::Number.within(range: 1..10)}",
-      user: user,
+      user: example_user,
       instructions: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum",
       address: example_user.address
     )
