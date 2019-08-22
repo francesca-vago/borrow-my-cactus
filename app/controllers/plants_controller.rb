@@ -1,16 +1,11 @@
 class PlantsController < ApplicationController
   def index
-
-    if Plant.global_search(params[:query]).empty?
-
-      @plants = policy_scope(Plant.all)
-
-      @plants = Plant.geocoded
+    if params[:query].present?
+      @plants = policy_scope(Plant).global_search(params[:query])
     else
-      @plants = policy_scope(Plant.global_search(params[:query]))
-
+      @plants = policy_scope(Plant)
     end
-        @markers = @plants.map do |plant|
+    @markers = @plants.map do |plant|
       {
         lat: plant.latitude,
         lng: plant.longitude,
