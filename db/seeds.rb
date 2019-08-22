@@ -7,8 +7,8 @@ Plant.destroy_all
 User.destroy_all
 
 reviews = ['good plants', 'the spikes are too sharp', 'cactus speaks!!!!!']
-cities = ['17 Amhurst Terrace, Hackney Downs, London E8 2BT',
-          '10 Bethnal Green Rd, Hackney, London E1 6GY',
+cities = ['Thames Path, London SE1 9JW',
+          '30 St Mary Axe, London EC3A 8BF',
           'South Kensington, London SW7 4SF',
           'Ladbroke Grove, Notting Hill, London W10 6HJ',
           '9 Battersea Rise, London SW11 1HG']

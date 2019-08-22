@@ -2,9 +2,8 @@ class PlantsController < ApplicationController
   def index
     if params[:query].present?
       @plants = policy_scope(Plant).global_search(params[:query])
-
     else
-      @plants = policy_scope(Plant.all)
+      @plants = policy_scope(Plant)
     end
     @markers = @plants.map do |plant|
       {
