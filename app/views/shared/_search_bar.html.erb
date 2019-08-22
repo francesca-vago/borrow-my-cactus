@@ -1,0 +1,12 @@
+  <form class="form-inline md-form form-sm active-red active-red mt-2">
+    <i class="fas fa-search" aria-hidden="true"></i>
+    <%= form_tag plants_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a cactus"
+      %>
+      <%= submit_tag "Search", class: "btn-transparent" %>
+    <% end %>
+  </form>
+

@@ -1,0 +1,12 @@
+.form-control {
+  border: none;
+}
+
+.active-red {
+border-bottom: 1px solid $red;
+box-shadow: 0 1px 0 0 $red;
+}
+
+.btn-transparent {
+  opacity: 0;
+}

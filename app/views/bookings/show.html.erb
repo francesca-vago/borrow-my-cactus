@@ -1,11 +1,16 @@
 <h1>Booking</h1>
 
 <p><%= @booking.plant.name %></p>
-<p><%= @booking.start_date %></p>
-<p><%= @booking.end_date %></p>
+
+  <div class="booking-form col-3">
+    <%= simple_form_for [@plant, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.button :submit, "Edit", class: "btn btn-green" %>
+    <% end %>
+  </div>
 
 <%= link_to "Back", dashboard_path %>
-<%= link_to "Edit", edit_booking_path(@booking) %>
 <%= link_to "Delete", booking_path(@booking),
     method: :delete,
     data: { confirm: "Are you sure?" }  %>

@@ -2,19 +2,13 @@
   <h1>All Plants</h1>
 </div>
 
-
+  <!-- Search Bar -->
 <div class="margin-search-bar">
-    <%= form_tag plants_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control ",
-        placeholder: "Find a cactus"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary ",style: "margin: 7px 0px;" %>
-    <% end %>
+  <%= render 'shared/search_bar' %>
 </div>
 
 <div class="search-container d-flex">
+
 
     <div class="width row" style="border-color: white;">
       <% if @plants.empty? %>
@@ -41,7 +35,7 @@
                   <h1 class="title"><%= link_to plant.name, plant_path(plant)  %></h1>
                   <p class="text"><%= plant.instructions %></p>
                   <br>
-                  <%= link_to "Book Now", new_plant_booking_path(plant), class: "button" %>
+                  <%= link_to "Book Now", plant_path(plant), class: "button" %>
                 </div>
               </div>
             </div>
