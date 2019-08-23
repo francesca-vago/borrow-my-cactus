@@ -8,7 +8,7 @@ User.destroy_all
 
 danger_levels = ["low", "medium", "high", "very high"]
 instructions = ["Water it weekly and keep in direct sunlight", "Water daily and keep in shadow", "Trim spikes daily"]
-reviews = ['Good plants', 'The spikes are too sharp', 'This one was a bit too big', 'The spikes are to long, very dangerous cactus', "You can borrow Francesca's cacti in total confidence"]
+reviews = ['Good plants', 'The spikes are too sharp', 'This one was a bit too big', 'The spikes are to long, very dangerous cactus', "You can borrow Paul's cacti in total confidence"]
 cities = ['Thames Path, London SE1 9JW',
           '30 St Mary Axe, London EC3A 8BF',
           'South Kensington, London SW7 4SF',
@@ -53,19 +53,19 @@ example_user = User.create!(
       image: images.sample,
       danger_level: danger_levels.sample
     )
-    2.times do
-      booking = Booking.create!(
-        plant: plant,
-        user: example_user,
-        start_date: Date.today + rand(0..4),
-        end_date: Date.today + rand(5..20)
-      )
-      Review.create!(
-        content: reviews.sample,
-        booking: booking,
-        stars:rand(1..4)
-      )
-    end
+    # 2.times do
+    #   booking = Booking.create!(
+    #     plant: plant,
+    #     user: example_user,
+    #     start_date: Date.today + rand(0..4),
+    #     end_date: Date.today + rand(5..20)
+    #   )
+    #   Review.create!(
+    #     content: reviews.sample,
+    #     booking: booking,
+    #     stars:rand(1..4)
+    #   )
+    # end
   end
 
 5.times do
