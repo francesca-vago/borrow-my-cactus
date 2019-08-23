@@ -6,7 +6,8 @@ Booking.destroy_all
 Plant.destroy_all
 User.destroy_all
 
-instruction = "Water it weekly and keep in direct sunlight"
+danger_levels = ["low", "medium", "high", "very high"]
+instructions = ["Water it weekly and keep in direct sunlight", "Water daily and keep in shadow", "Trim spikes daily"]
 reviews = ['Good plants', 'The spikes are too sharp', 'This one was a bit too big', 'The spikes are to long, very dangerous cactus', "You can borrow Francesca's cacti in total confidence"]
 cities = ['Thames Path, London SE1 9JW',
           '30 St Mary Axe, London EC3A 8BF',
@@ -47,9 +48,10 @@ example_user = User.create!(
       species: "Cactus",
       daily_price: "£#{Faker::Number.within(range: 1..10)}",
       user: example_user,
-      instructions: instruction,
+      instructions: instructions.sample,
       address: example_user.address,
-      image: images.sample
+      image: images.sample,
+      danger_level: danger_levels.sample
     )
     2.times do
       booking = Booking.create!(
@@ -80,7 +82,8 @@ example_user = User.create!(
       species: "Cactus",
       daily_price: "£#{Faker::Number.within(range: 1..10)}",
       user: user,
-      instructions: instruction,
+      instructions: instructions.sample,
+      danger_level: danger_levels.sample,
       address: user.address,
       image: images.sample
     )
@@ -96,7 +99,6 @@ example_user = User.create!(
         booking: booking,
         stars:rand(1..4)
       )
-
     end
   end
 end

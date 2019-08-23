@@ -3,11 +3,11 @@
     <div class="plant-image col-md-6" style="background-image: url(<%= @plant.image %>)"></div>
     <div class="info-container col-md-6">
       <h1><%= @plant.name %></h1>
-      <p><strong><%= @plant.daily_price %></strong></p>
-      <p><%= @plant.species %></p>
-      <p><%= @plant.instructions %></p>
-      <p><%= @plant.danger_level %></p>
-      <p><%= @plant.user.first_name %> <%= @plant.user.last_name %> </p>
+      <p><strong>Daily Price: <%= @plant.daily_price %></strong></p>
+      <p>Owner: <%= @plant.user.first_name %> <%= @plant.user.last_name %> | <%= @plant.address %> </p>
+      <p>Specie: <%= @plant.species %></p>
+      <p>Danger Level: <%= @plant.danger_level %></p>
+      <p>Instructions: <%= @plant.instructions %></p>
       <div class="wrapper">
         <% if policy(@plant).edit? %>
           <%= link_to edit_plant_path(@plant), class: "btn btn-green" do %> Edit <% end %>
