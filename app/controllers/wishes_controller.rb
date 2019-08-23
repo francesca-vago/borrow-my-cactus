@@ -1,6 +1,6 @@
 class WishesController < ApplicationController
   def show
-    @pwish = Wish.find(params[:id])
+    @wish = Wish.find(params[:id])
     authorize @wish
   end
 

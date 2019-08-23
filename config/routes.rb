@@ -6,12 +6,12 @@ Rails.application.routes.draw do
 
  resources :plants do
 
-  resources :bookings, only: [:new, :create]
+  resources :bookings, only: [:create]
   resources :wishes, only: [:create, :destroy]
 
  end
 
-resources :bookings, only: [:show, :update, :destroy] do
+resources :bookings, only: [:update, :destroy] do
   resources :reviews, only: [:new, :create]
  end
 

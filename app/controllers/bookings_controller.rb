@@ -1,10 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :update, :destroy]
 
-  def show
-    authorize @booking
-  end
-
   def create
     @plant = Plant.find(params[:plant_id])
     @booking = Booking.new(booking_params)
