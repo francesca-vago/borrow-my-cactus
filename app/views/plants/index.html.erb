@@ -9,15 +9,14 @@
 
 <div class="search-container d-flex">
 
-
-    <div class="width row" style="border-color: white;">
-      <% if @plants.empty? %>
-        <div style= "margin-top:30%; color: rgb(30,30,30);">
-          Sorry, we don't find any cactus for you...Try again!
-        </div>
-      <% else %>
-        <% @plants.each do |plant| %>
-          <div class="cactus card">
+  <div class="cards-container" style="border-color: white;">
+    <% if @plants.empty? %>
+      <div style= "margin-top:30%; color: rgb(30,30,30);">
+        Sorry, we don't find any cactus for you...Try again!
+      </div>
+    <% else %>
+      <% @plants.each do |plant| %>
+        <div class="cactus card">
             <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= plant.image %>)">
               <div class="header">
                 <div class="date">
@@ -40,12 +39,10 @@
               </div>
             </div>
           </div>
-        </div>
      <% end %>
     <% end %>
   </div>
-  <div>
-    <div
+  <div
       style="    position: sticky;
     top: 20px;"
       id="map"
@@ -53,7 +50,6 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-  </div>
 </div>
 
 
