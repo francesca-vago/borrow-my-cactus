@@ -25,3 +25,38 @@
   }
 }
 
+.review {
+  margin-top: 6px;
+  border-bottom: solid;
+  border-color: rgb(240,240,240);
+  color: rgb(30, 30 ,30);
+  text-align: initial;
+
+}
+
+.review p{
+  color: rgb(150,150,150);
+
+}
+
+.display-horizontal {
+  display:flex;
+  flex-direction:horizontal;
+}
+
+.display-vertical {
+  display:flex;
+  flex-direction:vertical;
+}
+
+.image{
+  height:300px;
+  width:245px;
+}
+
+
+.drawing-card {
+  height:50px;
+  width:245px;
+
+}

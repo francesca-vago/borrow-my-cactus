@@ -6,7 +6,7 @@ Booking.destroy_all
 Plant.destroy_all
 User.destroy_all
 
-reviews = ['good plants', 'the spikes are too sharp', 'cactus speaks!!!!!']
+reviews = ['Good plants', 'The spikes are too sharp', 'This one was a bit too big', 'The spikes are to long, very dangerous cactus', "You can borrow Francesca's cacti in total confidence"]
 cities = ['Thames Path, London SE1 9JW',
           '30 St Mary Axe, London EC3A 8BF',
           'South Kensington, London SW7 4SF',
