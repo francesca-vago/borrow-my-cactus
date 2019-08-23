@@ -80,11 +80,14 @@
             <div class="booking-infos">
               <h2>Return me in <strong><%= (booking.end_date - Date.today).to_i %> days! </strong></h2>
               <p>You borrowed <%= booking.plant.name %> from <strong><%= booking.plant.user.first_name%></strong></p>
+
+
             </div>
+            <div id="icon"><%=link_to image_tag("edit.png", style:"height: 21px; width: 21px;"), plant_path(booking.plant) %></div>
           </div>
 <!--           <p id="borrowing-content"><span id="name-borrowed"><%= booking.plant.name %></span> <span id="from">from</span> <span></span> and you have to return it the <strong><%= booking.end_date %></strong> </p>
           <% if policy(booking).show? %>
-            <%= link_to "Show", booking_path(booking) %>
+            <%=link_to "Show", booking_path(booking) %>
             <%= link_to "Add Review", new_booking_review_path(booking) %>
           <% end %> -->
         <% end %>
@@ -112,7 +115,7 @@
       <div class="row" style="border-color: white;">
         <% @my_wishes.each do |wish| %>
           <div class="cactus card">
-            <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://target.scene7.com/is/image/Target/GUEST_a60cf2b2-9af1-430e-8ee8-bdf824f64d4d?wid=488&hei=488&fmt=pjpeg)">
+            <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= wish.plant.image %>)">
               <div class="header">
                 <div class="date">
                   <span class="day"></span>
