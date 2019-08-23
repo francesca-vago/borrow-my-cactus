@@ -18,7 +18,7 @@
       <% else %>
         <% @plants.each do |plant| %>
           <div class="cactus card">
-            <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://target.scene7.com/is/image/Target/GUEST_a60cf2b2-9af1-430e-8ee8-bdf824f64d4d?wid=488&hei=488&fmt=pjpeg)">
+            <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= plant.image %>)">
               <div class="header">
                 <div class="date">
                   <span class="day"></span>
