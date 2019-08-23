@@ -2,46 +2,41 @@
   <h1>All Plants</h1>
 </div>
 
-
+  <!-- Search Bar -->
 <div class="margin-search-bar">
-    <%= form_tag plants_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control ",
-        placeholder: "Find a cactus"
-      %>
-      <%= submit_tag "Search", class: "btn btn-primary ",style: "margin: 7px 0px;" %>
-    <% end %>
+  <%= render 'shared/search_bar' %>
 </div>
 
 <div class="search-container d-flex">
 
-  <div class="width row" style="border-color: white;">
-    <% if @plants.empty? %>
-      <div style= "margin-top:30%; color: rgb(30,30,30);">
-        Sorry, we don't find any cactus for you...Try again!
-      </div>
-    <% else %>
-      <% @plants.each do |plant| %>
-        <div class="cactus card">
-          <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(https://target.scene7.com/is/image/Target/GUEST_a60cf2b2-9af1-430e-8ee8-bdf824f64d4d?wid=488&hei=488&fmt=pjpeg)">
-            <div class="header">
-              <div class="date">
-                <span class="day"></span>
-                <span class="month"><%= plant.daily_price %></span>
-                <span class="year">per day</span>
+
+    <div class="width row" style="border-color: white;">
+      <% if @plants.empty? %>
+        <div style= "margin-top:30%; color: rgb(30,30,30);">
+          Sorry, we don't find any cactus for you...Try again!
+        </div>
+      <% else %>
+        <% @plants.each do |plant| %>
+          <div class="cactus card">
+            <div class="wrapper" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(<%= plant.image %>)">
+              <div class="header">
+                <div class="date">
+                  <span class="day"></span>
+                  <span class="month"><%= plant.daily_price %></span>
+                  <span class="year">per day</span>
+                </div>
+                <ul class="menu-content">
+                  <li> <%= link_to "", plant_wishes_path(plant),  method: :post, class: "fa fa-heart-o" %><span>Save</span>
+                </ul>
               </div>
-              <ul class="menu-content">
-                <li> <%= link_to "", plant_wishes_path(plant),  method: :post, class: "fa fa-heart-o" %><span>Save</span>
-              </ul>
-            </div>
-            <div class="data">
-              <div class="content">
-                <span class="author"><%= plant.user.first_name %></span>
-                <h1 class="title"><%= link_to plant.name, plant_path(plant)  %></h1>
-                <p class="text"><%= plant.instructions %></p>
-                <br>
-                <%= link_to "Book Now", new_plant_booking_path(plant), class: "button" %>
+              <div class="data">
+                <div class="content">
+                  <span class="author"><%= plant.user.first_name %></span>
+                  <h1 class="title"><%= link_to plant.name, plant_path(plant)  %></h1>
+                  <p class="text"><%= plant.instructions %></p>
+                  <br>
+                  <%= link_to "Book Now", plant_path(plant), class: "button" %>
+                </div>
               </div>
             </div>
           </div>

@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :edit, :update, :destroy]
+  before_action :set_booking, only: [:show, :update, :destroy]
 
   def show
     authorize @booking
@@ -16,10 +16,6 @@ class BookingsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
-    authorize @booking
   end
 
   def update
