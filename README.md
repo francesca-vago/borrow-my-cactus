@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+# BorrowMyCactus
+
+This ruby on rails app is a marketplace on which you can borrow or lend a cactus. This project was made by a team of three people in couples of days.
